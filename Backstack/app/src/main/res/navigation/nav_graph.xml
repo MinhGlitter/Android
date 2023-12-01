@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/wf">
+
+    <fragment
+        android:id="@+id/wf"
+        android:name="com.example.myapplication.wf"
+        android:label="fragment_wf"
+        tools:layout="@layout/fragment_wf" >
+        <action
+            android:id="@+id/action_wf_to_q1f"
+            app:destination="@id/q1f" />
+    </fragment>
+    <fragment
+        android:id="@+id/q1f"
+        android:name="com.example.myapplication.q1f"
+        android:label="fragment_q1f"
+        tools:layout="@layout/fragment_q1f" >
+        <action
+            android:id="@+id/action_q1f_to_q2f"
+            app:destination="@id/q2f" />
+    </fragment>
+    <fragment
+        android:id="@+id/q2f"
+        android:name="com.example.myapplication.q2f"
+        android:label="fragment_q2f"
+        tools:layout="@layout/fragment_q2f" >
+        <action
+            android:id="@+id/action_q2f_to_q3f"
+            app:destination="@id/q3f" />
+    </fragment>
+    <fragment
+        android:id="@+id/q3f"
+        android:name="com.example.myapplication.q3f"
+        android:label="fragment_q3f"
+        tools:layout="@layout/fragment_q3f" >
+        <action
+            android:id="@+id/action_q3f_to_rf"
+            app:destination="@id/rf" />
+    </fragment>
+    <fragment
+        android:id="@+id/rf"
+        android:name="com.example.myapplication.rf"
+        android:label="fragment_rf"
+        tools:layout="@layout/fragment_rf" >
+        <action
+            android:id="@+id/action_rf_to_wf"
+            app:destination="@id/wf"
+            app:popUpTo="@id/wf"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
