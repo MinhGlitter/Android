@@ -28,6 +28,10 @@
         android:name="com.example.myapplication.q2f"
         android:label="fragment_q2f"
         tools:layout="@layout/fragment_q2f" >
+        <argument
+            android:name="resQ1"
+            android:defaultValue="0"
+            app:argType="integer" />
         <action
             android:id="@+id/action_q2f_to_q3f"
             app:destination="@id/q3f" />
@@ -37,6 +41,10 @@
         android:name="com.example.myapplication.q3f"
         android:label="fragment_q3f"
         tools:layout="@layout/fragment_q3f" >
+        <argument
+            android:name="resQ2"
+            android:defaultValue="0"
+            app:argType="integer" />
         <action
             android:id="@+id/action_q3f_to_rf"
             app:destination="@id/rf" />
@@ -46,6 +54,10 @@
         android:name="com.example.myapplication.rf"
         android:label="fragment_rf"
         tools:layout="@layout/fragment_rf" >
+        <argument
+            android:name="resQ3"
+            android:defaultValue="0"
+            app:argType="integer" />
         <action
             android:id="@+id/action_rf_to_wf"
             app:destination="@id/wf"
