@@ -54,19 +54,28 @@ class MainActivity : AppCompatActivity() {
         viewModel.scoreB.observe(this, scoreB_Observer)
 
         // Result
-        val result = viewModel.scoreA.map { teamAScore ->
+        val resultA = viewModel.scoreA.map { teamAScore ->
             val teamBScore = viewModel.scoreB.value ?: 0
+            when {
+                (teamAScore > 10) && (teamAScore > teamBScore) -> "Team A Won"
+                else -> ""
+            }
+        }
 
-            if ( (teamAScore > teamBScore) && (teamAScore > 10) ) {
-                "Team A Won"
-            } else if ( (teamBScore > teamAScore) && (teamBScore > 10) ){
-                "Team B Won"
-            } else ""
+        val resultB = viewModel.scoreB.map { teamBScore ->
+            val teamAScore = viewModel.scoreA.value ?: 0
+            when {
+                (teamBScore > 10) && (teamBScore > teamAScore) -> "Team B Won"
+                else -> ""
+            }
         }
 
         // View result
-        val result_Observer = Observer<String> { resultValue -> binding.resultView.text = resultValue }
-        result.observe(this, result_Observer)
+        val resultA_Observer = Observer<String> { resultValue -> binding.resultAView.text = resultValue }
+        resultA.observe(this, resultA_Observer)
+
+        val resultB_Observer = Observer<String> { resultValue -> binding.resultBView.text = resultValue }
+        resultB.observe(this, resultB_Observer)
 
         // Reset
         binding.resetButton.setOnClickListener {
